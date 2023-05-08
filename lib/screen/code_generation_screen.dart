@@ -8,36 +8,43 @@ class CodeGenerationScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state1 = ref.watch(gStateProvider);
-    final state2 = ref.watch(gStateFutureProvider);
-    final state3 = ref.watch(gStateFuture2Provider);
+    final state = ref.watch(gStateNotifierProvider);
 
     return DefaultLayout(
       title: 'CodeGenerationScreen',
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('state1: $state1'),
-          state2.when(
-            data: (data) {
-              return Text(
-                'state2: $data',
-                textAlign: TextAlign.center,
+          Consumer(
+            builder: (context, ref, child) {
+              final state = ref.watch(gStateNotifierProvider);
+              return Row(
+                children: [
+                  Text(state.toString()),
+                  if (child != null) child,
+                ],
               );
             },
-            error: (err, stackTrace) => Text(err.toString()),
-            loading: () => const Center(child: CircularProgressIndicator()),
+            child: const Text('hello'),
           ),
-          state3.when(
-            data: (data) {
-              return Text(
-                'state3: $data',
-                textAlign: TextAlign.center,
-              );
+          ElevatedButton(
+            onPressed: () {
+              ref.read(gStateNotifierProvider.notifier).increment();
             },
-            error: (err, stackTrace) => Text(err.toString()),
-            loading: () => const Center(child: CircularProgressIndicator()),
+            child: const Text('INCREMENT'),
           ),
+          ElevatedButton(
+            onPressed: () {
+              ref.read(gStateNotifierProvider.notifier).decrement();
+            },
+            child: const Text('DECREMENT'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              ref.invalidate(gStateNotifierProvider);
+            },
+            child: Text('Invalidate'),
+          )
         ],
       ),
     );

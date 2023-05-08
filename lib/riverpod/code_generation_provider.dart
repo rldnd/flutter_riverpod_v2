@@ -2,23 +2,30 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'code_generation_provider.g.dart';
 
-// BEFORE
-final _testProvider = Provider<String>((ref) => 'Hello Code Generation');
-
-// AFTER
 @riverpod
-String gState(GStateRef ref) {
-  return 'Hello Code Generation';
+class GStateNotifier extends _$GStateNotifier {
+  @override
+  int build() {
+    return 0;
+  }
+
+  increment() {
+    state++;
+  }
+
+  decrement() {
+    state--;
+  }
 }
 
 @riverpod
-Future<int> gStateFuture(GStateFutureRef ref) async {
-  await Future.delayed(const Duration(seconds: 3));
-  return 10;
+Future<int> futureProvider(FutureProviderRef ref) async {
+  return 0;
 }
 
-@Riverpod(keepAlive: true)
-Future<int> gStateFuture2(GStateFuture2Ref ref) async {
-  await Future.delayed(const Duration(seconds: 3));
-  return 10;
+@riverpod
+Stream<int> testStream(TestStreamRef ref) async* {
+  for (int i = 0; i < 10; i++) {
+    yield i;
+  }
 }

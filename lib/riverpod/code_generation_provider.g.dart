@@ -6,47 +6,49 @@ part of 'code_generation_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$gStateHash() => r'7ccdacb016fab2894413745b936f82987f9f72cf';
+String _$futureProviderHash() => r'69f70e8f2cb0b43055d4faa98eb5e24b62199a1a';
 
-/// See also [gState].
-@ProviderFor(gState)
-final gStateProvider = AutoDisposeProvider<String>.internal(
-  gState,
-  name: r'gStateProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$gStateHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef GStateRef = AutoDisposeProviderRef<String>;
-String _$gStateFutureHash() => r'eef3e95f799e15b4647a3851f8ee6b4438b05afa';
-
-/// See also [gStateFuture].
-@ProviderFor(gStateFuture)
-final gStateFutureProvider = AutoDisposeFutureProvider<int>.internal(
-  gStateFuture,
-  name: r'gStateFutureProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$gStateFutureHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef GStateFutureRef = AutoDisposeFutureProviderRef<int>;
-String _$gStateFuture2Hash() => r'c346965a30436f2ab0f038c27592f51d26b2d4bb';
-
-/// See also [gStateFuture2].
-@ProviderFor(gStateFuture2)
-final gStateFuture2Provider = FutureProvider<int>.internal(
-  gStateFuture2,
-  name: r'gStateFuture2Provider',
+/// See also [futureProvider].
+@ProviderFor(futureProvider)
+final futureProviderProvider = AutoDisposeFutureProvider<int>.internal(
+  futureProvider,
+  name: r'futureProviderProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$gStateFuture2Hash,
+      : _$futureProviderHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef GStateFuture2Ref = FutureProviderRef<int>;
+typedef FutureProviderRef = AutoDisposeFutureProviderRef<int>;
+String _$testStreamHash() => r'a1c453e3f6844c16edffc7063bbe48e84f4a54bb';
+
+/// See also [testStream].
+@ProviderFor(testStream)
+final testStreamProvider = AutoDisposeStreamProvider<int>.internal(
+  testStream,
+  name: r'testStreamProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$testStreamHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef TestStreamRef = AutoDisposeStreamProviderRef<int>;
+String _$gStateNotifierHash() => r'f5d3562260bad49518ffe5b82e60b7cc1b8655f2';
+
+/// See also [GStateNotifier].
+@ProviderFor(GStateNotifier)
+final gStateNotifierProvider =
+    AutoDisposeNotifierProvider<GStateNotifier, int>.internal(
+  GStateNotifier.new,
+  name: r'gStateNotifierProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$gStateNotifierHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$GStateNotifier = AutoDisposeNotifier<int>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
