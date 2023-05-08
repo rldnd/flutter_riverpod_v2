@@ -20,4 +20,11 @@ class Logger extends ProviderObserver {
     // TODO: implement didAddProvider
     super.didAddProvider(provider, value, container);
   }
+
+  @override
+  void didDisposeProvider(
+      ProviderBase<Object?> provider, ProviderContainer container) {
+    // TODO: implement didDisposeProvider
+    super.didDisposeProvider(provider, container);
+  }
 }
